@@ -71,13 +71,5 @@ const array3=
     }
 });
            
-       
-   
-
-   
- 
-
-
 
 module.exports = router;
-// adding this comment for no reason
