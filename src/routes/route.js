@@ -60,11 +60,53 @@ router.post('/test-post2', function (req, res) {
     res.send( {  msg: "hi guys..my 2nd post req"  }   )
 });
 
+let players =
+   [
+       {
+           "name": "manish",
+           "dob": "1/1/1995",
+           "gender": "male",
+           "city": "jalandhar",
+           "sports": [
+               "swimming"
+           ]
+       },
+       {
+           "name": "gopal",
+           "dob": "1/09/1995",
+           "gender": "male",
+           "city": "delhi",
+           "sports": [
+               "soccer"
+           ],
+       },
+       {
+           "name": "lokesh",
+           "dob": "1/1/1990",
+           "gender": "male",
+           "city": "mumbai",
+           "sports": [
+               "soccer"
+           ],
+       },
+   ]
+ 
 
-const randomController= require("../controllers/randomController.js")
-//write a post request to accept an element in post request body and add it to the given array and return the new array
-router.post('/test-post3', randomController.addToArray ); //HANDLER/CONTROLLER
 
-
-
+    
+   
+                
+       
+    router.post('/players', function(req, res){
+        for (let i= 0; i<players.length; i++) {
+            if(req.body.name==players[i].name){
+                return res.send({msg:"SIMILAR DATA FOUND"})
+            }
+         else
+         players.push(req.body)
+         return res.send({data:players})
+        }
+    });
+     
+    
 module.exports = router;
