@@ -24,7 +24,7 @@ router.post("/createBook", bookcollection.createBook)
 router.get("/getBookData", bookcollection.getBookData)
 router.get("/bookList", bookcollection.bookList )
 router.get("/getBooksInYear", bookcollection.getBooksInYear)
-router.get("/getParticularBooks", bookcollection.getParticularBooks)
+router.post("/getParticularBooks", bookcollection.getParticularBooks)
 router.get("/getXNIR", bookcollection.getXINRBooks)
 router.get("/getRandomBooks", bookcollection.getRandomBooks)
 

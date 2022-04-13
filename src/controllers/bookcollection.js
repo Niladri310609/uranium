@@ -24,7 +24,7 @@ const getBooksInYear= async function(req , res) {
 }
 ////////////////////getParticularBooks//////////////////
 const getParticularBooks= async function( req, res){
-    let particularData= req.query
+    let particularData= req.body
     const getParticularBooks= await bookcollectmodel.find(particularData)
     res.send({msg:getParticularBooks})
 }
