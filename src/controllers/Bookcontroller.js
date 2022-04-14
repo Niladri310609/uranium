@@ -1,6 +1,6 @@
 const BookModel= require("../models/Bookmodel")
 
-const creationBook= async function (req, res) {
+/*const creationBook= async function (req, res) {
     let data= req.body
     let savedData= await BookModel.create(data)
     res.send({msg: savedData})
@@ -12,4 +12,4 @@ const mybook= async function (req, res) {
 }
 
 module.exports.creationBook=creationBook
-module.exports.mybook=mybook
+module.exports.mybook=mybook*/

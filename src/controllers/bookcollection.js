@@ -1,6 +1,7 @@
 const bookcollectmodel= require("../models/bookcollectmodel")
 
-const createBook= async function (req, res) {
+/*const createBook= async function (req, res) {
+
     let data= req.body
     let savedData= await bookcollectmodel.create(data)
     res.send({msg: savedData})
@@ -46,4 +47,4 @@ module.exports.bookList=bookList
 module.exports.getBooksInYear=getBooksInYear
 module.exports.getParticularBooks=getParticularBooks
 module.exports.getXINRBooks=getXINRBooks
-module.exports.getRandomBooks=getRandomBooks
+module.exports.getRandomBooks=getRandomBooks*/
