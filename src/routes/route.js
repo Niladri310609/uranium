@@ -45,6 +45,6 @@ router.put("/priceupdate", bookController.changePrice)*/
 router.post("/batches", batchctrl.createBatch)
 router.post("/developers", developerctrl.NewDeveloper)
 router.get("/scholarshipdevelopers", developerctrl.eligdev)
-router.get("/fdevelopers", developerctrl.develope)
+router.get("/fdevelopers", developerctrl.developes)
 
 module.exports = router;

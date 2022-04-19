@@ -14,7 +14,7 @@ const eligdev= async function (req,res) {
     res.send({msg:devs});
 }
 
-const develope= async function(req,res){
+const developes= async function(req,res){
     let newdevs= await batchModel.findOne({name: req.query.program} ,{_id: 1 })
    console.log(newdevs)
 
@@ -25,6 +25,6 @@ const develope= async function(req,res){
 
 
 
-module.exports.develope=develope
+module.exports.developes=developes
 module.exports.NewDeveloper=NewDeveloper
 module.exports.eligdev=eligdev
