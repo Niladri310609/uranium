@@ -3,7 +3,8 @@ const router = express.Router();
 const authorController= require("../controllers/authorController")
 const bookController= require("../controllers/bookController")
 const publishController= require("../controllers/publishController")
-
+const batchctrl=require("../controllers/batchctrl")
+const developerctrl= require("../controllers/developerctrl")
 const { route } = require('express/lib/application');
 
 
@@ -34,12 +35,16 @@ router.post("/allbooks", bookauthorctrl.allbooks)
 router.get("/update",bookauthorctrl.updatedBookPrice)
 router.get("/costfilter",bookauthorctrl.authorsName)*/
 
-router.post("/Newauthor", authorController.createAuthor)
+/*router.post("/Newauthor", authorController.createAuthor)
 router.post("/Newpublisher", publishController.createPublisher)
 router.post("/Newbook", bookController.NewBook )
 router.get("/fetchBookData", bookController.getBookDetails)
 router.put("/book", bookController.updateHardCover)
-router.put("/priceupdate", bookController.changePrice)
+router.put("/priceupdate", bookController.changePrice)*/
 
+router.post("/batches", batchctrl.createBatch)
+router.post("/developers", developerctrl.NewDeveloper)
+router.get("/scholarshipdevelopers", developerctrl.eligdev)
+router.get("/fdevelopers", developerctrl.develope)
 
 module.exports = router;
