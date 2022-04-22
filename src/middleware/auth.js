@@ -1,17 +1,25 @@
-const assignmentcontroller = require("../controllers/assignmentcontroller");
+const userController = require("../controllers/assignmentcontroller");
+const userModel= require("../models/userModel")
+const jwt = require("jsonwebtoken");
 
-const authcheck = async function (req, res, next) {
+const mid1 = async function (req, res, next) {
+  let token = req.headers["x-auth-token"];
+  if (!token) token = req.headers["x-auth-token"];
+
+  if (!token) return res.send({ status: false, msg: "token must be present" });
+
+  let decodedToken = jwt.verify(token, "functionup-Uranium");
+  if (!decodedToken)
+    return res.send({ status: false, msg: "token is invalid" });
+
   let userId = req.params.userId;
-  let user = await userModel.findById(userId);
+  let userDetails = await userModel.findById(userId);
+  if (!userDetails)
+    return res.send({ status: false, msg: "No such user exists" });
 
-  if (!user) {
-    return res.send("No such user exists");
-  }
-
-  let userData = req.body;
-  let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData);
-  res.send({ status: updatedUser, data: updatedUser });
+  res.send({ status: true, data: userDetails });
 
   next();
 };
-module.exports.authcheck = authcheck;
+
+module.exports.mid1 = mid1;

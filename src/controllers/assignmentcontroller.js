@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
 
-
 const NewUser = async function (req, res) {
   let data = req.body;
   let savedData = await userModel.create(data);
@@ -63,23 +62,23 @@ const UserUpdate = async function (req, res) {
   res.send({ status: updatedUser, data: updatedUser });
 };
 
-
-const DeleteUser= async function(req,res){
-  let token=req.headers["x-auth-token"]
-  console.log(token)
-  if(!token){
-      res.send("this request does not contain mandatory header")
+const DelUser = async function (req, res) {
+  let token = req.headers["x-auth-token"];
+  console.log(token);
+  if (!token) {
+    res.send("this request does not contain mandatory header");
   }
-  let id=req.params.userId
-  let user=await userModel.findByIdAndUpdate({_id:id},{isDeleted:true},{new:true})
-  res.send({msg:user})
-}
-
-
-
+  let id = req.params.userId;
+  let user = await userModel.findByIdAndUpdate(
+    { _id: id },
+    { isDeleted: true },
+    { new: true }
+  );
+  res.send({ msg: user });
+};
 
 module.exports.NewUser = NewUser;
 module.exports.loginDetails = loginDetails;
 module.exports.UserDetails = UserDetails;
 module.exports.UserUpdate = UserUpdate;
-module.exports.DeleteUser=DeleteUser
+module.exports.DelUser = DelUser;
