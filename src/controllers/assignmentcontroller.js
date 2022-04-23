@@ -1,13 +1,12 @@
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const NewUser = async function (req, res) {
   let data = req.body;
   let savedData = await userModel.create(data);
-  console.log(req.newAtribute);
   res.send({ msg: savedData });
 };
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const loginDetails = async function (req, res) {
   let userName = req.body.emailId;
   let password = req.body.password;
@@ -30,7 +29,7 @@ const loginDetails = async function (req, res) {
   res.setHeader("x-auth-token", token);
   res.send({ status: true, data: token });
 };
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const UserDetails = async function (req, res) {
   let token = req.headers["x-auth-token"];
   if (!token) token = req.headers["x-auth-token"];
@@ -48,7 +47,7 @@ const UserDetails = async function (req, res) {
 
   res.send({ status: true, data: userDetails });
 };
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const UserUpdate = async function (req, res) {
   let userId = req.params.userId;
   let user = await userModel.findById(userId);
@@ -61,7 +60,7 @@ const UserUpdate = async function (req, res) {
   let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData);
   res.send({ status: updatedUser, data: updatedUser });
 };
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const DelUser = async function (req, res) {
   let token = req.headers["x-auth-token"];
   console.log(token);
